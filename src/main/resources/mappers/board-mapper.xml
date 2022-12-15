@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Member">
+    <insert id="insertMember">
+        insert into member(userid, password, username, sex, age, email, address, phone) values (#{userid}, #{password}, #{username}, #{sex}, #{age}, #{email}, #{address}, #{phone})
+    </insert>
+    <update id="updateMember">
+        update member set username=#{username}, email=#{email}, address=#{address}, phone=#{phone} where sid=#{sid}
+    </update>
+    <delete id="deleteMember">
+        delete from member where sid=#{sid}
+    </delete>
+    <select id="getMember" resultType="member">
+        select * from member where sid=#{sid}
+    </select>
+    <select id="getList" resultType="member">
+        select * from member order by sid desc
+    </select>
+</mapper>
